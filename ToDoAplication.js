@@ -7,8 +7,11 @@ toDoList.pop(new Task("kanapki","zrobić kanapki"));
 toDoList.pop(new Task("kanapki2","zrobić kanapki33"));
 toDoList.pop(new Task("kanapki3","zrobić kanapki33"));
 
-var nextRow = document.createElement("row");
+var nextRow; //= document.createElement("row");
 
 $("button.add").click(function(){
-    new Task(#exampleInputEmail3,#exampleInputPassword3);
+    nextRow = document.createElement("row task");
+    alert("dupa!");
+
+    return nextRow; //new Task(#exampleInputEmail3,#exampleInputPassword3);
 });
