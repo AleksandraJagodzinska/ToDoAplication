@@ -8,15 +8,25 @@ toDoList.pop(new Task("kanapki2","zrobić kanapki33"));
 toDoList.pop(new Task("kanapki3","zrobić kanapki33"));
 
 var nextRow = null; //= document.createElement("row");
-var table = null;
+var list = null;
 
 $("button.add").click(function(){
-    nextRow = document.createElement('row task');
-    nextRow.innerHTML = "<h1> dupsko</h1>";
 
-    table = document.getElementsByClassName('content');
-    document.body.insertBefore(nextRow,table);
-    alert("dupa!");
 
-    return nextRow; //new Task(#exampleInputEmail3,#exampleInputPassword3);
-});
+
+    var li = document.createElement("li");
+    var text = document.createTextNode("treść");
+
+    li.appendChild(text);
+
+}
+
+//     nextRow = document.createElement('row task');
+//     nextRow.innerHTML = "<h1> dupsko</h1>";
+//
+//     table = document.getElementsByClassName('content');
+//     document.body.insertBefore(nextRow,table);
+//     alert("dupa!");
+//
+//     return nextRow; //new Task(#exampleInputEmail3,#exampleInputPassword3);
+// });
