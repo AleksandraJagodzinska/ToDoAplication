@@ -7,17 +7,15 @@ toDoList.pop(new Task("kanapki","zrobić kanapki"));
 toDoList.pop(new Task("kanapki2","zrobić kanapki33"));
 toDoList.pop(new Task("kanapki3","zrobić kanapki33"));
 
-var nextRow = null; //= document.createElement("row");
-var list = null;
 
 $("button.add").click(function(){
 
-
-
-    var li = document.createElement("li");
+    var list = document.querySelector("#list")
+    var listItem = document.createElement("li");
     var text = document.createTextNode("treść");
 
-    li.appendChild(text);
+    listItem.appendChild(text);
+    list.appendChild(listItem)
 
 }
 
