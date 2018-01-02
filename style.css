@@ -8,7 +8,8 @@ h1{
 
 ul li {
     position: relative;
-    padding: 12px 8px 12px 40px;
+    padding-left: 20px;
+    margin-left: 20px;
     font-size: 1.5em;
 }
 
@@ -23,14 +24,12 @@ ul li.checked::before {
 
 .close {
     font-size: 2em;
-    /*position: absolute;*/
     padding: 12px 16px 0px 16px;
+    color: #F46E36e8;
 }
-
 
 .header {
     padding: 30px 40px;
-
     text-align: center;
 }
 
@@ -49,6 +48,8 @@ input {
     font-size: 1.5em;
 }
 .addBtn {
+    border: solid 2px #f46e36e8;
+    border-radius: 30%;
     padding: 10px;
     width: 25%;
     float: left;
