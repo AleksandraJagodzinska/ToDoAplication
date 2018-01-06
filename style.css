@@ -47,11 +47,11 @@ input {
     float: left;
     font-size: 1.5em;
 }
-.addBtn {
+#addButton {
     border: solid 2px #f46e36e8;
     border-radius: 30%;
     padding: 10px;
-    width: 25%;
+    width: 8%;
     float: left;
     text-align: center;
     font-size: 1.5em;

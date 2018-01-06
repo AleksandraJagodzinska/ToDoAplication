@@ -1,46 +1,54 @@
+var taskListNode = document.getElementById("taskList");
+var addTaskButton = document.getElementById("addButton");
+var taskInput = document.getElementById("taskInput");
 
+var taskList = new TaskList(taskListNode);
 
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
+function TaskList(listNode) {
+    this.listNode = listNode;
+    this.tasks = new Array();
 
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-}
-
-function newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-    } else {
-        document.getElementById("myUL").appendChild(li);
-    }
-    document.getElementById("myInput").value = "";
-
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            var div = this.parentElement;
-            div.style.display = "none";
+    this.addTask = function (task) {
+        this.tasks.push(task);
+        this.listNode.appendChild(task.listItem);
+        var taskList = this;
+        task.onRemove = function () {
+           taskList.removeTask(task);
         }
+    };
+
+    this.removeTask = function (task) {
+        this.listNode.removeChild(task.listItem);
+        var index = this.tasks.indexOf(task);
+        this.tasks.splice(index, 1);
+    };
+
+};
+
+
+function Task(description) {
+    this.description = description;
+    this.listItem = document.createElement("li");
+    this.listItem.innerHTML = this.description;
+
+    var removeButton = document.createElement("span");
+    removeButton.innerHTML = "   x";
+    this.listItem.appendChild(removeButton);
+
+    var task = this
+    removeButton.onclick = function () {
+        task.onRemove()
     }
-}
+    this.onRemove = null;
+
+};
+
+
+addTaskButton.onclick = function () {
+    var taskDescription = taskInput.value;
+    taskInput.value = "";
+    var task = new Task(taskDescription);
+    taskList.addTask(task);
+};
+
 
